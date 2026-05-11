@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rejuvenecimiento Facial — MediJOY & Clinic</title>
+<link rel="stylesheet" href="../styles/global.css">
+<style>
+.trat-hero{min-height:72vh;background:linear-gradient(145deg,var(--teal-deep) 0%,#082928 100%);display:flex;align-items:center;padding:130px 100px 80px;position:relative;overflow:hidden}
+.trat-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(201,168,76,.08) 0%,transparent 60%),repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(255,255,255,.012) 80px,rgba(255,255,255,.012) 81px)}
+.trat-hero-inner{position:relative;z-index:1;max-width:780px}
+.trat-back{display:inline-flex;align-items:center;gap:10px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,248,244,.4);text-decoration:none;margin-bottom:40px;transition:color .3s;cursor:none}
+.trat-back:hover{color:var(--gold)}
+.trat-back::before{content:'←'}
+.trat-eyebrow{font-size:.62rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.trat-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.trat-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,5.2rem);font-weight:300;color:var(--cream);line-height:1.05;margin-bottom:24px}
+.trat-hero h1 em{color:var(--gold);font-style:italic}
+.trat-hero-lead{font-size:.9rem;font-weight:300;line-height:2;color:rgba(250,248,244,.55);max-width:560px;margin-bottom:36px}
+.trat-stats{display:flex;gap:2px;background:rgba(255,255,255,.05);width:fit-content}
+.ts{padding:18px 28px;text-align:center}
+.ts-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1}
+.ts-lbl{font-size:.58rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,248,244,.4);margin-top:5px}
+.content{max-width:1100px;margin:0 auto;padding:100px 100px}
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:80px;align-items:start}
+.section-block{margin-bottom:60px}
+.section-block h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--teal-deep);margin-bottom:16px}
+.section-block h2 em{color:var(--gold);font-style:italic}
+.section-block p{font-size:.86rem;font-weight:300;line-height:2;color:var(--smoke);margin-bottom:14px}
+.info-box{background:var(--teal-deep);padding:36px;margin-bottom:32px}
+.info-box h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--cream);margin-bottom:16px}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.info-row:last-child{border-bottom:none}
+.ir-label{font-size:.68rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,248,244,.4)}
+.ir-val{font-size:.82rem;font-weight:400;color:var(--gold-pale)}
+.steps-list{display:flex;flex-direction:column;gap:2px;margin-top:20px}
+.step-item{background:var(--beige);padding:28px 32px;display:flex;gap:24px;align-items:flex-start;transition:background .3s}
+.step-item:hover{background:var(--cream)}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:rgba(201,168,76,.3);line-height:1;flex-shrink:0;width:40px}
+.step-content h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--teal-deep);margin-bottom:7px}
+.step-content p{font-size:.78rem;font-weight:300;line-height:1.85;color:var(--smoke)}
+.ideal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--sand);margin-top:20px}
+.ideal-card{background:var(--cream);padding:28px 24px;transition:background .4s,transform .4s}
+.ideal-card:hover{background:var(--teal-deep);transform:translateY(-2px)}
+.ideal-card:hover .ic-title,.ideal-card:hover .ic-desc{color:var(--cream)!important}
+.ic-icon{font-size:22px;color:var(--gold);margin-bottom:12px}
+.ic-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--teal-deep);margin-bottom:7px;transition:color .4s}
+.ic-desc{font-size:.73rem;font-weight:300;line-height:1.8;color:var(--smoke);transition:color .4s}
+.cta-band{background:var(--teal-deep);padding:72px 100px;text-align:center;position:relative;overflow:hidden}
+.cta-band-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(201,168,76,.06) 0%,transparent 65%)}
+.cta-band-inner{position:relative;z-index:1}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--cream);margin-bottom:16px}
+.cta-band h2 em{color:var(--gold);font-style:italic}
+.cta-band p{font-size:.84rem;font-weight:300;color:rgba(250,248,244,.45);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.9}
+.sibling-nav{background:var(--beige-warm);padding:44px 100px;display:flex;align-items:center;justify-content:space-between}
+.sib-link{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:none;transition:gap .3s}
+.sib-link:hover{gap:18px}
+.sib-dir{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke)}
+.sib-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;color:var(--teal-deep);transition:color .3s}
+.sib-link:hover .sib-name{color:var(--gold)}
+@media(max-width:900px){.trat-hero{padding:110px 28px 60px}.content{padding:60px 28px}.content-grid{grid-template-columns:1fr;gap:40px}.ideal-grid{grid-template-columns:1fr 1fr}.cta-band{padding:60px 28px}.sibling-nav{padding:32px 28px;flex-direction:column;gap:20px}}
+</style>
+</head>
+<body>
+<div class="cursor"></div><div class="cursor-ring"></div>
+<nav class="nav-main">
+  <a href="../index.html" class="nav-logo"><img src="../logo.jpg" alt="MediJOY" style="height:40px;width:auto;border-radius:2px"></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#tratamientos">Tratamientos</a></li>
+    <li><a href="../index.html#diferencia">Nosotros</a></li>
+    <li><a href="../index.html#agendar" class="nav-cta">Agendar</a></li>
+  </ul>
+</nav>
+<a href="../index.html#agendar" class="float-cta">Agendar Valoración</a>
+
+<section class="trat-hero">
+  <div class="trat-hero-bg"></div>
+  <div class="trat-hero-inner">
+    <a href="../index.html#tratamientos" class="trat-back">Todos los tratamientos</a>
+    <div class="trat-eyebrow">Tratamiento 01</div>
+    <h1>Rejuvenecimiento<br><em>Facial</em></h1>
+    <p class="trat-hero-lead">Nuestro tratamiento más completo y popular. Combina técnicas de estimulación celular, bioestimulación y nutrición cutánea para devolver firmeza, luminosidad y vitalidad a tu piel desde la primera sesión.</p>
+    <div class="trat-stats">
+      <div class="ts"><div class="ts-num">3–6</div><div class="ts-lbl">Sesiones recomendadas</div></div>
+      <div class="ts"><div class="ts-num">60–90</div><div class="ts-lbl">Minutos por sesión</div></div>
+      <div class="ts"><div class="ts-num">0</div><div class="ts-lbl">Días de recuperación</div></div>
+      <div class="ts"><div class="ts-num">98%</div><div class="ts-lbl">Satisfacción</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+  <div class="content-grid">
+    <div>
+      <div class="section-block reveal">
+        <div class="eyebrow">¿Qué es?</div>
+        <h2>El tratamiento que <em>transforma</em></h2>
+        <p>El rejuvenecimiento facial en MediJOY es un protocolo médico integral que combina múltiples técnicas de última generación para abordar los signos del envejecimiento de forma natural y progresiva.</p>
+        <p>A diferencia de tratamientos agresivos, nuestro enfoque trabaja estimulando los mecanismos naturales de regeneración de tu piel: producción de colágeno, elastina e hidratación profunda.</p>
+        <p>Cada sesión es personalizada según tu tipo de piel, tus objetivos y el diagnóstico de nuestra médico especialista. El resultado es una piel más firme, luminosa y saludable, sin perder tu esencia.</p>
+      </div>
+      <div class="info-box reveal d1">
+        <h3>Información del tratamiento</h3>
+        <div class="info-row"><span class="ir-label">Invasividad</span><span class="ir-val">Mínima — sin cirugía</span></div>
+        <div class="info-row"><span class="ir-label">Sesiones</span><span class="ir-val">3 a 6 sesiones</span></div>
+        <div class="info-row"><span class="ir-label">Duración por sesión</span><span class="ir-val">60 a 90 minutos</span></div>
+        <div class="info-row"><span class="ir-label">Frecuencia</span><span class="ir-val">Cada 2 a 4 semanas</span></div>
+        <div class="info-row"><span class="ir-label">Tiempo de recuperación</span><span class="ir-val">Ninguno</span></div>
+        <div class="info-row"><span class="ir-label">Resultados visibles</span><span class="ir-val">Desde la 1ª sesión</span></div>
+        <div class="info-row"><span class="ir-label">Incluye diagnóstico</span><span class="ir-val">✓ Sí, gratuito</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-block reveal">
+        <div class="eyebrow">El Proceso</div>
+        <h2>¿Cómo <em>funciona</em>?</h2>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">01</div><div class="step-content"><h4>Diagnóstico facial personalizado</h4><p>Evaluamos tu tipo de piel, áreas de preocupación y objetivos. Tomamos fotos de referencia para monitorear tu progreso.</p></div></div>
+          <div class="step-item"><div class="step-num">02</div><div class="step-content"><h4>Limpieza y preparación</h4><p>Limpieza profunda de la piel y aplicación de productos preparadores para maximizar la absorción de los activos.</p></div></div>
+          <div class="step-item"><div class="step-num">03</div><div class="step-content"><h4>Aplicación del protocolo</h4><p>Aplicación de técnicas y activos específicos según tu diagnóstico. Puede incluir bioestimulación, radiofrecuencia y ácido hialurónico.</p></div></div>
+          <div class="step-item"><div class="step-num">04</div><div class="step-content"><h4>Finalización y cuidados</h4><p>Protección y sellado del tratamiento. Te indicamos los cuidados post-sesión para potenciar y prolongar los resultados.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="eyebrow">¿Para quién es?</div>
+    <h2>Ideal <em>para ti</em> si...</h2>
+    <div class="ideal-grid">
+      <div class="ideal-card"><div class="ic-icon">◈</div><div class="ic-title">Flacidez y pérdida de firmeza</div><p class="ic-desc">Tu piel ha perdido elasticidad y quieres recuperar el contorno facial.</p></div>
+      <div class="ideal-card"><div class="ic-icon">✦</div><div class="ic-title">Líneas finas y expresión</div><p class="ic-desc">Presencia de líneas de expresión o arrugas tempranas que deseas suavizar.</p></div>
+      <div class="ideal-card"><div class="ic-icon">❋</div><div class="ic-title">Piel apagada o sin brillo</div><p class="ic-desc">Tu piel se ve cansada o sin luminosidad y buscas recuperar su vitalidad.</p></div>
+      <div class="ideal-card"><div class="ic-icon">◉</div><div class="ic-title">Poros dilatados</div><p class="ic-desc">Quieres mejorar la textura de tu piel y reducir la apariencia de los poros.</p></div>
+      <div class="ideal-card"><div class="ic-icon">◈</div><div class="ic-title">Manchas y tono irregular</div><p class="ic-desc">Deseas unificar el tono de tu piel y reducir la hiperpigmentación.</p></div>
+      <div class="ideal-card"><div class="ic-icon">✦</div><div class="ic-title">Prevención del envejecimiento</div><p class="ic-desc">Quieres mantener tu piel joven y saludable antes de que aparezcan señales de edad.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-inner reveal">
+    <div class="eyebrow" style="justify-content:center;color:var(--gold-light)">Siguiente Paso</div>
+    <h2>¿Lista para tu <em>transformación</em>?</h2>
+    <p>Agenda tu valoración gratuita. Sin compromiso, sin presión. Solo un diagnóstico profesional y un plan personalizado para ti.</p>
+    <a href="../index.html#agendar" class="btn btn-gold">Agendar Valoración Gratuita</a>
+  </div>
+</div>
+
+<div class="sibling-nav">
+  <a href="../index.html#tratamientos" class="sib-link"><div class="sib-dir">← Regresar a</div><div class="sib-name">Todos los tratamientos</div></a>
+  <a href="ozonoterapia.html" class="sib-link"><div><div class="sib-dir">Siguiente tratamiento →</div><div class="sib-name">Ozonoterapia</div></div></a>
+</div>
+
+<footer class="mj-footer">
+  <div class="mj-footer-grid">
+    <div><img src="../logo.jpg" alt="MediJOY" style="height:50px;width:auto;margin-bottom:16px;border-radius:2px"><p class="mj-footer-desc">Medicina estética premium. Resultados naturales y acompañamiento humano.</p><div class="mj-footer-socials"><a class="mj-social" href="#">IG</a><a class="mj-social" href="#">FB</a><a class="mj-social" href="#">WA</a></div></div>
+    <div class="mj-footer-col"><h5>Tratamientos</h5><ul><li><a href="rejuvenecimiento.html">Rejuvenecimiento Facial</a></li><li><a href="ozonoterapia.html">Ozonoterapia</a></li><li><a href="manchas.html">Manchas</a></li><li><a href="acne.html">Acné</a></li><li><a href="hidratacion.html">Hidratación</a></li><li><a href="lipo.html">Lipo Sin Cirugía</a></li></ul></div>
+    <div class="mj-footer-col"><h5>Clínica</h5><ul><li><a href="../index.html#diferencia">Nosotros</a></li><li><a href="../index.html#proceso">Proceso</a></li><li><a href="../index.html#testimonios">Testimonios</a></li></ul></div>
+    <div class="mj-footer-col"><h5>Contacto</h5><ul><li><a href="../index.html#agendar">Agendar Cita</a></li><li><a href="#">WhatsApp</a></li></ul></div>
+  </div>
+  <div class="mj-footer-bottom"><div class="mj-footer-divline"></div><p class="mj-footer-copy">© 2025 MediJOY & Clinic</p><div class="mj-footer-divline" style="background:linear-gradient(to left,var(--gold),transparent)"></div></div>
+</footer>
+<script src="../styles/main.js"></script>
+</body>
+</html>
