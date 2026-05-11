@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tratamientos — MediJOY & Clinic</title>
+<link rel="stylesheet" href="styles/global.css">
+<style>
+.cat-hero{min-height:55vh;background:linear-gradient(145deg,var(--teal-deep) 0%,#082928 100%);display:flex;align-items:center;padding:130px 100px 80px;position:relative;overflow:hidden}
+.cat-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(201,168,76,.08) 0%,transparent 60%),repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(255,255,255,.012) 80px,rgba(255,255,255,.012) 81px)}
+.cat-hero-inner{position:relative;z-index:1;max-width:680px}
+.cat-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,5.5rem);font-weight:300;color:var(--cream);line-height:1.05;margin-bottom:20px}
+.cat-hero h1 em{color:var(--gold);font-style:italic}
+.cat-hero-lead{font-size:.9rem;font-weight:300;line-height:2;color:rgba(250,248,244,.5);max-width:520px}
+.filter-bar{background:var(--beige-warm);padding:32px 100px;display:flex;gap:14px;align-items:center;border-bottom:1px solid var(--sand)}
+.filter-label{font-size:.6rem;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--smoke);margin-right:8px}
+.filter-btn{padding:9px 20px;border:1px solid var(--sand);background:var(--cream);font-family:'Jost',sans-serif;font-size:.65rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--smoke);cursor:none;transition:all .3s;border-radius:2px}
+.filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.06)}
+.catalog{padding:80px 100px;background:var(--cream)}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--sand)}
+.ct{background:var(--cream);padding:44px 36px;position:relative;overflow:hidden;cursor:none;transition:background .4s;display:flex;flex-direction:column}
+.ct::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,var(--teal-deep),var(--teal));opacity:0;transition:opacity .5s}
+.ct:hover::before{opacity:1}
+.ct-in{position:relative;z-index:2;flex:1;display:flex;flex-direction:column}
+.ct-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(26,92,90,.07);line-height:1;margin-bottom:6px;transition:color .4s}
+.ct:hover .ct-num{color:rgba(255,255,255,.07)}
+.ct-icon{width:46px;height:46px;border-radius:50%;border:1px solid var(--teal-light);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--teal);margin-bottom:18px;transition:all .4s}
+.ct:hover .ct-icon{background:rgba(201,168,76,.15);border-color:var(--gold);color:var(--gold)}
+.ct-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--teal-deep);margin-bottom:4px;line-height:1.2;transition:color .4s}
+.ct:hover .ct-name{color:var(--cream)}
+.ct-sub{font-size:.63rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.ct-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.ct-tag{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(26,92,90,.18);color:var(--teal);border-radius:20px;transition:all .4s}
+.ct:hover .ct-tag{border-color:rgba(201,168,76,.3);color:rgba(240,224,176,.6)}
+.ct-desc{font-size:.77rem;font-weight:300;line-height:1.9;color:var(--smoke);margin-bottom:14px;flex:1;transition:color .4s}
+.ct:hover .ct-desc{color:rgba(250,248,244,.58)}
+.ct-meta{display:flex;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.ct-m{font-size:.6rem;font-weight:300;color:rgba(26,92,90,.55);display:flex;align-items:center;gap:5px;transition:color .4s}
+.ct:hover .ct-m{color:rgba(250,248,244,.35)}
+.ct-link{font-size:.62rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:10px;transition:gap .3s;cursor:none;margin-top:auto}
+.ct-link:hover{gap:16px}.ct-link::after{content:'→'}
+.compare-section{background:var(--teal-deep);padding:80px 100px}
+.compare-table{width:100%;border-collapse:collapse;margin-top:44px;position:relative;z-index:1}
+.compare-table th{font-size:.6rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);padding:16px 20px;text-align:left;border-bottom:1px solid rgba(201,168,76,.2)}
+.compare-table td{font-size:.78rem;font-weight:300;color:rgba(250,248,244,.6);padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05)}
+.compare-table tr:hover td{background:rgba(255,255,255,.03);color:rgba(250,248,244,.85)}
+.compare-table td:first-child{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--cream)}
+.compare-table .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
+@media(max-width:900px){.cat-hero{padding:110px 28px 60px}.filter-bar{padding:24px 28px;flex-wrap:wrap}.catalog{padding:60px 28px}.cat-grid{grid-template-columns:1fr}.compare-section{padding:60px 28px}.compare-table{font-size:.7rem}}
+</style>
+</head>
+<body>
+<div class="cursor"></div><div class="cursor-ring"></div>
+<nav class="nav-main">
+  <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="MediJOY" style="height:40px;width:auto;border-radius:2px"></a>
+  <ul class="nav-links"><li><a href="index.html">Inicio</a></li><li><a href="index.html#diferencia">Nosotros</a></li><li><a href="index.html#testimonios">Testimonios</a></li><li><a href="index.html#agendar" class="nav-cta">Agendar</a></li></ul>
+</nav>
+<a href="index.html#agendar" class="float-cta">Agendar Valoración</a>
+
+<section class="cat-hero">
+  <div class="cat-hero-bg"></div>
+  <div class="cat-hero-inner">
+    <div class="eyebrow" style="color:var(--gold-light)">Catálogo Completo</div>
+    <h1>Nuestros<br><em>tratamientos</em></h1>
+    <p class="cat-hero-lead">Seis tratamientos especializados diseñados para realzar tu belleza natural con tecnología de vanguardia, precisión médica y acompañamiento personalizado.</p>
+  </div>
+</section>
+
+<div class="catalog">
+  <div class="cat-grid">
+    <div class="ct reveal">
+      <div class="ct-in"><div class="ct-num">01</div><div class="ct-icon">◈</div><h3 class="ct-name">Rejuvenecimiento Facial</h3><div class="ct-sub">Tratamiento Estrella</div><div class="ct-tags"><span class="ct-tag">Firmeza</span><span class="ct-tag">Anti-edad</span><span class="ct-tag">Luminosidad</span></div><p class="ct-desc">Protocolo integral de bioestimulación y nutrición celular para devolver firmeza y vitalidad a tu piel. Resultados visibles desde la primera sesión.</p><div class="ct-meta"><span class="ct-m">· 3–6 sesiones</span><span class="ct-m">· 60–90 min</span><span class="ct-m">· Sin recuperación</span></div><a href="pages/rejuvenecimiento.html" class="ct-link">Ver tratamiento</a></div>
+    </div>
+    <div class="ct reveal d1">
+      <div class="ct-in"><div class="ct-num">02</div><div class="ct-icon">◉</div><h3 class="ct-name">Ozonoterapia</h3><div class="ct-sub">Bienestar & Regeneración</div><div class="ct-tags"><span class="ct-tag">Oxigenación</span><span class="ct-tag">Inmune</span><span class="ct-tag">Natural</span></div><p class="ct-desc">Oxigenación profunda con ozono medicinal para regenerar tejidos, fortalecer el sistema inmune y aportar bienestar integral desde adentro.</p><div class="ct-meta"><span class="ct-m">· 4–8 sesiones</span><span class="ct-m">· 45–60 min</span><span class="ct-m">· 100% natural</span></div><a href="pages/ozonoterapia.html" class="ct-link">Ver tratamiento</a></div>
+    </div>
+    <div class="ct reveal d2">
+      <div class="ct-in"><div class="ct-num">03</div><div class="ct-icon">✦</div><h3 class="ct-name">Eliminación de Manchas</h3><div class="ct-sub">Unificación de Tono</div><div class="ct-tags"><span class="ct-tag">Melasma</span><span class="ct-tag">Solar</span><span class="ct-tag">Tono uniforme</span></div><p class="ct-desc">Despigmentación controlada para eliminar manchas de sol, melasma y marcas post-acné. Recupera la luminosidad y uniformidad de tu piel.</p><div class="ct-meta"><span class="ct-m">· 4–8 sesiones</span><span class="ct-m">· 45–75 min</span><span class="ct-m">· Mínima recuperación</span></div><a href="pages/manchas.html" class="ct-link">Ver tratamiento</a></div>
+    </div>
+    <div class="ct reveal">
+      <div class="ct-in"><div class="ct-num">04</div><div class="ct-icon">❋</div><h3 class="ct-name">Tratamiento para Acné</h3><div class="ct-sub">Control & Cicatrización</div><div class="ct-tags"><span class="ct-tag">Brotes</span><span class="ct-tag">Cicatrices</span><span class="ct-tag">Poros</span></div><p class="ct-desc">Protocolo médico integral para reducir brotes activos, controlar el sebo, mejorar textura y tratar cicatrices de acné con resultados seguros.</p><div class="ct-meta"><span class="ct-m">· 6–10 sesiones</span><span class="ct-m">· 45–60 min</span><span class="ct-m">· Progresivo</span></div><a href="pages/acne.html" class="ct-link">Ver tratamiento</a></div>
+    </div>
+    <div class="ct reveal d1">
+      <div class="ct-in"><div class="ct-num">05</div><div class="ct-icon">◈</div><h3 class="ct-name">Hidratación Facial Profunda</h3><div class="ct-sub">Nutrición Intensiva</div><div class="ct-tags"><span class="ct-tag">Brillo</span><span class="ct-tag">Inmediato</span><span class="ct-tag">Nutrición</span></div><p class="ct-desc">Nutrición en múltiples capas con ácido hialurónico, vitaminas y antioxidantes. Efecto inmediato que devuelve el brillo y vitalidad a tu piel.</p><div class="ct-meta"><span class="ct-m">· Desde 1 sesión</span><span class="ct-m">· 60 min</span><span class="ct-m">· Sin recuperación</span></div><a href="pages/hidratacion.html" class="ct-link">Ver tratamiento</a></div>
+    </div>
+    <div class="ct reveal d2">
+      <div class="ct-in"><div class="ct-num">06</div><div class="ct-icon">◉</div><h3 class="ct-name">Lipo Sin Cirugía</h3><div class="ct-sub">Remodelación Corporal</div><div class="ct-tags"><span class="ct-tag">No invasivo</span><span class="ct-tag">Corporal</span><span class="ct-tag">Sin quirófano</span></div><p class="ct-desc">Tecnología no invasiva para eliminar grasa localizada, tonificar y reafirmar la figura sin cirugía, anestesia ni tiempo de recuperación.</p><div class="ct-meta"><span class="ct-m">· 6–12 sesiones</span><span class="ct-m">· 60–90 min</span><span class="ct-m">· Sin cirugía</span></div><a href="pages/lipo.html" class="ct-link">Ver tratamiento</a></div>
+    </div>
+  </div>
+</div>
+
+<section class="compare-section">
+  <div class="eyebrow reveal" style="color:var(--gold-light)">Comparativa</div>
+  <h2 class="h-display reveal d1" style="color:var(--cream)">¿Cuál es <em>para ti</em>?</h2>
+  <table class="compare-table reveal d2">
+    <thead><tr><th>Tratamiento</th><th>Sesiones</th><th>Duración</th><th>Recuperación</th><th>Resultado visible</th></tr></thead>
+    <tbody>
+      <tr><td>Rejuvenecimiento Facial</td><td>3–6</td><td>60–90 min</td><td>Ninguna</td><td>Desde sesión 1</td></tr>
+      <tr><td>Ozonoterapia</td><td>4–8</td><td>45–60 min</td><td>Ninguna</td><td>Desde sesión 2–3</td></tr>
+      <tr><td>Eliminación de Manchas</td><td>4–8</td><td>45–75 min</td><td>1–2 días mínima</td><td>Desde sesión 2–3</td></tr>
+      <tr><td>Tratamiento Acné</td><td>6–10</td><td>45–60 min</td><td>1–2 días mínima</td><td>Desde sesión 3–4</td></tr>
+      <tr><td>Hidratación Profunda</td><td>Desde 1</td><td>60 min</td><td>Ninguna</td><td>Inmediato</td></tr>
+      <tr><td>Lipo Sin Cirugía</td><td>6–12</td><td>60–90 min</td><td>Ninguna</td><td>Desde sesión 3–4</td></tr>
+    </tbody>
+  </table>
+  <div style="text-align:center;margin-top:52px" class="reveal">
+    <p style="font-size:.82rem;font-weight:300;color:rgba(250,248,244,.38);margin-bottom:28px;line-height:1.9">¿No sabes cuál es el tratamiento ideal para ti? Agenda tu valoración gratuita y te ayudamos a decidir.</p>
+    <a href="index.html#agendar" class="btn btn-gold">Agendar Valoración Gratuita</a>
+  </div>
+</section>
+
+<footer class="mj-footer">
+  <div class="mj-footer-grid">
+    <div><img src="logo.jpg" alt="MediJOY" style="height:50px;width:auto;margin-bottom:16px;border-radius:2px"><p class="mj-footer-desc">Medicina estética premium. Tecnología avanzada, resultados naturales.</p><div class="mj-footer-socials"><a class="mj-social" href="#">IG</a><a class="mj-social" href="#">FB</a><a class="mj-social" href="#">WA</a><a class="mj-social" href="#">TK</a></div></div>
+    <div class="mj-footer-col"><h5>Tratamientos</h5><ul><li><a href="pages/rejuvenecimiento.html">Rejuvenecimiento</a></li><li><a href="pages/ozonoterapia.html">Ozonoterapia</a></li><li><a href="pages/manchas.html">Manchas</a></li><li><a href="pages/acne.html">Acné</a></li><li><a href="pages/hidratacion.html">Hidratación</a></li><li><a href="pages/lipo.html">Lipo Sin Cirugía</a></li></ul></div>
+    <div class="mj-footer-col"><h5>Clínica</h5><ul><li><a href="index.html#diferencia">Nosotros</a></li><li><a href="index.html#proceso">Proceso</a></li><li><a href="index.html#testimonios">Testimonios</a></li></ul></div>
+    <div class="mj-footer-col"><h5>Contacto</h5><ul><li><a href="index.html#agendar">Agendar Cita</a></li><li><a href="#">WhatsApp</a></li></ul></div>
+  </div>
+  <div class="mj-footer-bottom"><div class="mj-footer-divline"></div><p class="mj-footer-copy">© 2025 MediJOY & Clinic · Medicina Estética</p><div class="mj-footer-divline" style="background:linear-gradient(to left,var(--gold),transparent)"></div></div>
+</footer>
+<script src="styles/main.js"></script>
+</body>
+</html>
