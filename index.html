@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="MediJOY & Clinic — Medicina estética premium. Rejuvenecimiento facial, ozonoterapia, hidratación, lipo sin cirugía. Resultados naturales, cuidado humano.">
+<title>MediJOY & Clinic — Medicina Estética Premium</title>
+<link rel="stylesheet" href="styles/global.css">
+<style>
+/* ── HERO ── */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{padding:120px 60px 80px 100px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;background:var(--cream)}
+.hero-right{position:relative;overflow:hidden;background:linear-gradient(145deg,var(--teal-deep) 0%,#082928 100%)}
+.hero-right-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 65% 45%,rgba(201,168,76,.11) 0%,transparent 65%),radial-gradient(ellipse 50% 60% at 20% 85%,rgba(26,92,90,.7) 0%,transparent 60%)}
+.hero-bg-word{position:absolute;font-family:'Cormorant Garamond',serif;font-size:22rem;font-weight:300;color:rgba(255,255,255,.025);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;animation:slowR 40s linear infinite}
+@keyframes slowR{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+.hero-eyebrow{font-size:.62rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.hero-eyebrow::before{content:'';width:36px;height:1px;background:var(--gold)}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,5.4rem);font-weight:300;line-height:1.06;color:var(--teal-deep);margin-bottom:30px}
+.hero-h1 em{color:var(--gold);font-style:italic}
+.hero-lead{font-size:.88rem;font-weight:300;line-height:2;color:var(--smoke);max-width:420px;margin-bottom:48px}
+.hero-actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-bottom:60px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--sand);max-width:400px}
+.hs{background:var(--cream);padding:20px 16px;text-align:center}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--teal);line-height:1}
+.hs-lbl{font-size:.58rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke);margin-top:6px}
+.hero-quote-block{position:absolute;bottom:52px;left:52px;right:52px;border-left:2px solid rgba(201,168,76,.5);padding-left:24px}
+.hero-quote-block p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;font-weight:300;color:rgba(240,224,176,.8);line-height:1.6;margin-bottom:10px}
+.hero-quote-block cite{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-style:normal}
+/* Logo in hero */
+.hero-logo-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);z-index:2;text-align:center}
+.hero-logo-center img{width:260px;height:auto;filter:brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);opacity:.15}
+
+/* ── FILO STRIP ── */
+#filo{background:var(--teal-deep);padding:72px 100px;position:relative;overflow:hidden}
+.filo-bg{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 120px,rgba(255,255,255,.012) 120px,rgba(255,255,255,.012) 121px)}
+.filo-grid{display:grid;grid-template-columns:1fr 2px 1fr 2px 1fr 2px 1fr;align-items:stretch;position:relative;z-index:1}
+.filo-div{background:rgba(201,168,76,.15)}
+.filo-item{padding:0 44px;text-align:center}
+.filo-item:first-child{padding-left:0}.filo-item:last-child{padding-right:0}
+.filo-icon{width:46px;height:46px;margin:0 auto 18px;border:1px solid rgba(201,168,76,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--gold);transition:background .4s}
+.filo-item:hover .filo-icon{background:rgba(201,168,76,.1)}
+.filo-item h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--cream);margin-bottom:10px}
+.filo-item p{font-size:.73rem;font-weight:300;line-height:1.85;color:rgba(250,248,244,.4)}
+
+/* ── TRATAMIENTOS ── */
+#tratamientos{padding:110px 100px;background:var(--cream)}
+.trat-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:68px}
+.trat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--sand)}
+.tc{background:var(--cream);padding:44px 36px;position:relative;overflow:hidden;cursor:none;transition:background .4s;display:flex;flex-direction:column}
+.tc::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,var(--teal-deep),var(--teal));opacity:0;transition:opacity .5s}
+.tc:hover::before{opacity:1}
+.tc-in{position:relative;z-index:2;flex:1;display:flex;flex-direction:column}
+.tc-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(26,92,90,.07);line-height:1;margin-bottom:8px;transition:color .4s}
+.tc:hover .tc-num{color:rgba(255,255,255,.07)}
+.tc-icon{width:46px;height:46px;border-radius:50%;border:1px solid var(--teal-light);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--teal);margin-bottom:20px;transition:all .4s}
+.tc:hover .tc-icon{background:rgba(201,168,76,.15);border-color:var(--gold);color:var(--gold)}
+.tc-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--teal-deep);margin-bottom:5px;line-height:1.2;transition:color .4s}
+.tc:hover .tc-name{color:var(--cream)}
+.tc-sub{font-size:.65rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.tc-desc{font-size:.78rem;font-weight:300;line-height:1.9;color:var(--smoke);margin-bottom:16px;flex:1;transition:color .4s}
+.tc:hover .tc-desc{color:rgba(250,248,244,.6)}
+.tc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.tc-tag{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(26,92,90,.18);color:var(--teal);border-radius:20px;transition:all .4s}
+.tc:hover .tc-tag{border-color:rgba(201,168,76,.3);color:rgba(240,224,176,.6)}
+.tc-link{font-size:.63rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:10px;transition:gap .3s;cursor:none;margin-top:auto}
+.tc-link:hover{gap:16px}
+.tc-link::after{content:'→'}
+.tc.feat{grid-column:span 2}
+.tc.feat .tc-in{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.tc.feat .tc-name{font-size:1.85rem}
+
+/* ── DIFERENCIA ── */
+#diferencia{background:var(--beige-warm);padding:110px 100px;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.dif-items{display:flex;flex-direction:column;gap:2px;margin-top:36px}
+.di{padding:28px 32px;background:var(--cream);border-left:3px solid transparent;transition:border-color .4s,transform .4s;cursor:none}
+.di:hover{border-left-color:var(--gold);transform:translateX(6px)}
+.di-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.di-icon{width:34px;height:34px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--gold);flex-shrink:0}
+.di-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--teal-deep)}
+.di-body{font-size:.76rem;font-weight:300;line-height:1.9;color:var(--smoke)}
+.dif-stats{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--sand)}
+.ds{background:var(--cream);padding:26px 22px}
+.ds-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;color:var(--teal);line-height:1;margin-bottom:5px}
+.ds-lbl{font-size:.6rem;font-weight:300;letter-spacing:.13em;text-transform:uppercase;color:var(--smoke)}
+
+/* ── PROCESO ── */
+#proceso{background:var(--teal-deep);padding:110px 100px;position:relative;overflow:hidden}
+.proceso-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(201,168,76,.05) 0%,transparent 60%)}
+.proceso-inner{position:relative;z-index:1}
+.proceso-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:72px}
+.psteps{display:grid;grid-template-columns:repeat(6,1fr);position:relative}
+.psteps::before{content:'';position:absolute;top:28px;left:28px;right:28px;height:1px;background:linear-gradient(to right,var(--gold),rgba(201,168,76,.1))}
+.pstep{text-align:center;padding:0 10px;position:relative}
+.pcircle{width:56px;height:56px;border-radius:50%;border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;background:rgba(255,255,255,.03);position:relative;z-index:1;transition:background .4s,border-color .4s}
+.pstep:hover .pcircle{background:rgba(201,168,76,.12);border-color:var(--gold)}
+.pnum{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;color:var(--gold)}
+.pname{font-size:.66rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,248,244,.65);line-height:1.5;margin-bottom:8px}
+.pdesc{font-size:.66rem;font-weight:300;line-height:1.7;color:rgba(250,248,244,.3)}
+.garantia{margin-top:60px;padding:36px 44px;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.18);display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}
+.gi{padding:0 28px;border-right:1px solid rgba(201,168,76,.12)}
+.gi:last-child{border-right:none}
+.gi-label{font-size:.58rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.gi-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:rgba(250,248,244,.75);line-height:1.5}
+
+/* ── TESTIMONIOS ── */
+#testimonios{background:var(--cream);padding:110px 100px}
+.testi-hdr{margin-bottom:60px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--sand)}
+.tcard{background:var(--beige);padding:40px 32px;cursor:none;transition:background .4s}
+.tcard:hover{background:var(--cream)}
+.tmark{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;color:rgba(201,168,76,.2);line-height:.8;margin-bottom:14px}
+.ttext{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;font-weight:300;line-height:1.7;color:var(--teal-deep);margin-bottom:24px}
+.tstars{color:var(--gold);font-size:.8rem;margin-bottom:14px;letter-spacing:4px}
+.tauthor{display:flex;align-items:center;gap:12px}
+.tav{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--teal-light),var(--teal-deep));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--gold-pale)}
+.tname{font-size:.73rem;font-weight:500;color:var(--teal-deep)}
+.ttrat{font-size:.63rem;font-weight:300;color:var(--gold);letter-spacing:.08em}
+
+/* ── AGENDAR FORM ── */
+#agendar{background:var(--teal-deep);padding:110px 100px;position:relative;overflow:hidden}
+.ag-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(201,168,76,.05) 0%,transparent 65%)}
+.ag-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
+.ag-info{margin-top:44px;display:flex;flex-direction:column;gap:22px}
+.aii{display:flex;align-items:flex-start;gap:14px}
+.ai-ico{font-size:16px;color:var(--gold);flex-shrink:0;margin-top:3px}
+.ai-title{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,248,244,.7);margin-bottom:3px}
+.ai-val{font-size:.8rem;font-weight:300;color:rgba(250,248,244,.38);line-height:1.6}
+/* form */
+.fprog{display:flex;align-items:center;margin-bottom:44px}
+.fpd{width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,168,76,.25);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:rgba(250,248,244,.3);transition:all .4s}
+.fpd.a{background:var(--gold);border-color:var(--gold);color:var(--teal-deep);font-weight:600}
+.fpd.d{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.5);color:var(--gold)}
+.fpl{flex:1;height:1px;background:rgba(201,168,76,.15);transition:background .4s}
+.fpl.d{background:rgba(201,168,76,.5)}
+.fpanel{display:none}
+.fpanel.a{display:block;animation:pIn .5s cubic-bezier(.23,1,.32,1)}
+@keyframes pIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.fq{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;color:var(--cream);margin-bottom:7px;line-height:1.4}
+.fhint{font-size:.72rem;font-weight:300;color:rgba(250,248,244,.36);margin-bottom:24px}
+.mi{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);padding:15px 18px;font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--cream);outline:none;border-radius:2px;transition:border-color .3s,background .3s}
+.mi::placeholder{color:rgba(250,248,244,.22)}
+.mi:focus{border-color:rgba(201,168,76,.6);background:rgba(255,255,255,.06)}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.ogrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+.mopt{padding:14px 16px;border:1px solid rgba(201,168,76,.18);background:rgba(255,255,255,.03);color:rgba(250,248,244,.5);font-size:.74rem;font-weight:300;text-align:center;cursor:none;transition:all .3s;border-radius:2px}
+.mopt.s,.mopt:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.07)}
+.fnav{display:flex;align-items:center;justify-content:space-between;margin-top:24px}
+.fbk{background:none;border:none;font-family:'Jost',sans-serif;font-size:.65rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,248,244,.3);cursor:none;transition:color .3s}
+.fbk:hover{color:rgba(250,248,244,.65)}
+.fok{display:none;text-align:center;padding:44px 20px}
+.fok.show{display:block;animation:pIn .6s ease}
+.sring{width:68px;height:68px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:26px;color:var(--gold)}
+.fok h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:12px}
+.fok p{font-size:.8rem;font-weight:300;color:rgba(250,248,244,.4);line-height:1.9}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  #hero{grid-template-columns:1fr}.hero-left{padding:110px 32px 80px}.hero-right{display:none}
+  #filo{padding:60px 32px}.filo-grid{grid-template-columns:1fr;gap:28px}.filo-div{display:none}.filo-item{padding:0;text-align:left}
+  #tratamientos{padding:80px 32px}.trat-header{grid-template-columns:1fr;gap:20px}.trat-grid{grid-template-columns:1fr}.tc.feat{grid-column:span 1}.tc.feat .tc-in{grid-template-columns:1fr;gap:14px}
+  #diferencia{grid-template-columns:1fr;padding:80px 32px}
+  #proceso{padding:80px 32px}.proceso-header{grid-template-columns:1fr;gap:20px}.psteps{grid-template-columns:1fr 1fr;gap:28px}.psteps::before{display:none}.garantia{grid-template-columns:1fr;padding:28px 20px}.gi{border-right:none;border-bottom:1px solid rgba(201,168,76,.12);padding:14px 0}.gi:last-child{border-bottom:none}
+  #testimonios{padding:80px 32px}.testi-grid{grid-template-columns:1fr}
+  #agendar{padding:80px 32px}.ag-inner{grid-template-columns:1fr;gap:52px}.igrid{grid-template-columns:1fr}.ogrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<!-- NAV -->
+<nav class="nav-main">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.jpg" alt="MediJOY & Clinic" style="height:42px;width:auto;object-fit:contain;border-radius:2px">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#tratamientos">Tratamientos</a></li>
+    <li><a href="#diferencia">Nosotros</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#agendar" class="nav-cta">Agendar</a></li>
+  </ul>
+</nav>
+<a href="#agendar" class="float-cta">Agendar Valoración</a>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow reveal">Medicina Estética Premium · México</div>
+    <h1 class="hero-h1 reveal d1">Donde la<br>ciencia <em>abraza</em><br>tu belleza</h1>
+    <p class="hero-lead reveal d2">Tratamientos estéticos de vanguardia con resultados naturales. Tecnología avanzada, diagnóstico personalizado y acompañamiento humano en cada etapa de tu proceso.</p>
+    <div class="hero-actions reveal d3">
+      <a href="#agendar" class="btn btn-teal">Agendar Valoración Gratuita</a>
+      <a href="tratamientos.html" class="btn btn-ghost">Ver Tratamientos</a>
+    </div>
+    <div class="hero-stats reveal d4">
+      <div class="hs"><div class="hs-num"><span class="count-up" data-target="98" data-suffix="%">98%</span></div><div class="hs-lbl">Satisfacción</div></div>
+      <div class="hs"><div class="hs-num"><span class="count-up" data-target="5000" data-suffix="+">5000+</span></div><div class="hs-lbl">Pacientes</div></div>
+      <div class="hs"><div class="hs-num"><span class="count-up" data-target="8" data-suffix="+">8+</span></div><div class="hs-lbl">Años</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-overlay"></div>
+    <div class="hero-bg-word">JOY</div>
+    <div class="hero-logo-center">
+      <img src="logo.jpg" alt="MediJOY" style="width:280px;filter:brightness(0) invert(1);opacity:.08">
+    </div>
+    <div class="hero-quote-block">
+      <p>"Rejuvenecer no es cambiar quién eres.<br>Es revelar tu mejor versión."</p>
+      <cite>— MediJOY & Clinic</cite>
+    </div>
+  </div>
+</section>
+
+<!-- FILOSOFIA STRIP -->
+<section id="filo">
+  <div class="filo-bg"></div>
+  <div class="filo-grid">
+    <div class="filo-item reveal"><div class="filo-icon">◈</div><h3>Diagnóstico Preciso</h3><p>Valoración facial completa antes de cualquier tratamiento. Cada plan, diseñado para tus necesidades específicas.</p></div>
+    <div class="filo-div"></div>
+    <div class="filo-item reveal d1"><div class="filo-icon">✦</div><h3>Resultados Naturales</h3><p>Filosofía de belleza auténtica. Resaltamos tu esencia sin transformaciones artificiales.</p></div>
+    <div class="filo-div"></div>
+    <div class="filo-item reveal d2"><div class="filo-icon">❋</div><h3>Tecnología Avanzada</h3><p>Equipos de última generación y técnicas probadas para resultados seguros y duraderos.</p></div>
+    <div class="filo-div"></div>
+    <div class="filo-item reveal d3"><div class="filo-icon">◉</div><h3>Acompañamiento Total</h3><p>Contigo antes, durante y después. Seguimiento personalizado hasta el resultado que deseas.</p></div>
+  </div>
+</section>
+
+<!-- TRATAMIENTOS -->
+<section id="tratamientos">
+  <div class="trat-header">
+    <div>
+      <div class="eyebrow reveal">Tratamientos</div>
+      <h2 class="h-display reveal d1">Experiencias de<br><em>rejuvenecimiento</em></h2>
+    </div>
+    <div>
+      <div class="gold-line reveal"></div>
+      <p class="body-text reveal d1">Cada tratamiento diseñado con un propósito claro: realzar tu belleza natural con la mayor seguridad y precisión médica.</p>
+      <br>
+      <a href="tratamientos.html" class="btn btn-teal reveal d2" style="margin-top:8px">Ver catálogo completo</a>
+    </div>
+  </div>
+  <div class="trat-grid">
+    <!-- Rejuvenecimiento FEATURED -->
+    <div class="tc feat reveal">
+      <div class="tc-in">
+        <div>
+          <div class="tc-num">01</div>
+          <div class="tc-icon">◈</div>
+          <h3 class="tc-name">Rejuvenecimiento Facial</h3>
+          <div class="tc-sub">Tratamiento Estrella</div>
+          <div class="tc-tags"><span class="tc-tag">Firmeza</span><span class="tc-tag">Luminosidad</span><span class="tc-tag">Anti-edad</span></div>
+        </div>
+        <div>
+          <p class="tc-desc">Nuestro tratamiento más completo. Combina técnicas de estimulación celular, bioestimulación y nutrición cutánea para devolver firmeza, luminosidad y vitalidad a tu piel. Resultados visibles desde la primera sesión.</p>
+          <ul style="list-style:none;margin-bottom:22px">
+            <li style="font-size:.75rem;font-weight:300;color:var(--smoke);padding:4px 0;display:flex;gap:10px;transition:color .4s" class="tli">· Mejora visible desde la primera sesión</li>
+            <li style="font-size:.75rem;font-weight:300;color:var(--smoke);padding:4px 0;display:flex;gap:10px" class="tli">· Sin tiempo de recuperación</li>
+            <li style="font-size:.75rem;font-weight:300;color:var(--smoke);padding:4px 0;display:flex;gap:10px" class="tli">· Protocolo personalizado por tipo de piel</li>
+            <li style="font-size:.75rem;font-weight:300;color:var(--smoke);padding:4px 0;display:flex;gap:10px" class="tli">· Incluye diagnóstico facial completo</li>
+          </ul>
+          <a href="pages/rejuvenecimiento.html" class="tc-link">Conocer tratamiento</a>
+        </div>
+      </div>
+    </div>
+    <!-- Ozono -->
+    <div class="tc reveal d1">
+      <div class="tc-in">
+        <div class="tc-num">02</div><div class="tc-icon">◉</div>
+        <h3 class="tc-name">Ozonoterapia</h3><div class="tc-sub">Bienestar & Regeneración</div>
+        <div class="tc-tags"><span class="tc-tag">Oxigenación</span><span class="tc-tag">Inmune</span></div>
+        <p class="tc-desc">Oxigenación profunda de los tejidos para regenerar, revitalizar y estimular los procesos naturales de sanación del organismo y la piel.</p>
+        <a href="pages/ozonoterapia.html" class="tc-link">Conocer tratamiento</a>
+      </div>
+    </div>
+    <!-- Manchas -->
+    <div class="tc reveal">
+      <div class="tc-in">
+        <div class="tc-num">03</div><div class="tc-icon">✦</div>
+        <h3 class="tc-name">Eliminación de Manchas</h3><div class="tc-sub">Unificación de Tono</div>
+        <div class="tc-tags"><span class="tc-tag">Melasma</span><span class="tc-tag">Manchas solares</span></div>
+        <p class="tc-desc">Tratamiento especializado para unificar el tono de piel, eliminar manchas de sol, melasma y otras hiperpigmentaciones con resultados duraderos.</p>
+        <a href="pages/manchas.html" class="tc-link">Conocer tratamiento</a>
+      </div>
+    </div>
+    <!-- Acné -->
+    <div class="tc reveal d1">
+      <div class="tc-in">
+        <div class="tc-num">04</div><div class="tc-icon">❋</div>
+        <h3 class="tc-name">Tratamiento para Acné</h3><div class="tc-sub">Control & Cicatrización</div>
+        <div class="tc-tags"><span class="tc-tag">Brotes</span><span class="tc-tag">Cicatrices</span><span class="tc-tag">Poros</span></div>
+        <p class="tc-desc">Protocolo médico para reducir brotes activos, mejorar textura y disminuir cicatrices de acné. Resultados visibles y seguros.</p>
+        <a href="pages/acne.html" class="tc-link">Conocer tratamiento</a>
+      </div>
+    </div>
+    <!-- Hidratación -->
+    <div class="tc reveal">
+      <div class="tc-in">
+        <div class="tc-num">05</div><div class="tc-icon">◈</div>
+        <h3 class="tc-name">Hidratación Facial Profunda</h3><div class="tc-sub">Nutrición Intensiva</div>
+        <div class="tc-tags"><span class="tc-tag">Brillo</span><span class="tc-tag">Nutrición</span><span class="tc-tag">Efecto Inmediato</span></div>
+        <p class="tc-desc">Nutrición intensiva para pieles deshidratadas o apagadas. Efecto inmediato y duradero que recupera el brillo y fortalece la barrera cutánea.</p>
+        <a href="pages/hidratacion.html" class="tc-link">Conocer tratamiento</a>
+      </div>
+    </div>
+    <!-- Lipo -->
+    <div class="tc reveal d1">
+      <div class="tc-in">
+        <div class="tc-num">06</div><div class="tc-icon">◉</div>
+        <h3 class="tc-name">Lipo Sin Cirugía</h3><div class="tc-sub">Remodelación Corporal</div>
+        <div class="tc-tags"><span class="tc-tag">No Invasivo</span><span class="tc-tag">Corporal</span></div>
+        <p class="tc-desc">Alternativa no invasiva para moldear y redefinir la figura sin cirugía ni tiempo de recuperación. Abdomen, muslos y brazos.</p>
+        <a href="pages/lipo.html" class="tc-link">Conocer tratamiento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIA -->
+<section id="diferencia">
+  <div class="reveal-l">
+    <div class="eyebrow">Por qué elegirnos</div>
+    <h2 class="h-display">La diferencia<br><em>MediJOY</em></h2>
+    <div class="gold-line"></div>
+    <p class="body-text">No somos una clínica más. Somos un equipo comprometido con tu bienestar, tu seguridad y tus resultados. Cada decisión centrada en ti.</p>
+    <div class="dif-stats">
+      <div class="ds"><div class="ds-num"><span class="count-up" data-target="5000" data-suffix="+">5000+</span></div><div class="ds-lbl">Pacientes atendidas</div></div>
+      <div class="ds"><div class="ds-num"><span class="count-up" data-target="98" data-suffix="%">98%</span></div><div class="ds-lbl">Satisfacción</div></div>
+      <div class="ds"><div class="ds-num"><span class="count-up" data-target="6" data-suffix="">6</span></div><div class="ds-lbl">Especialidades</div></div>
+      <div class="ds"><div class="ds-num"><span class="count-up" data-target="8" data-suffix="+">8+</span></div><div class="ds-lbl">Años experiencia</div></div>
+    </div>
+  </div>
+  <div class="reveal-r">
+    <div class="dif-items">
+      <div class="di"><div class="di-head"><div class="di-icon">◈</div><div class="di-title">Valoración 100% Gratuita</div></div><p class="di-body">Primera consulta sin costo. Diagnóstico profesional completo sin compromiso ni presión.</p></div>
+      <div class="di"><div class="di-head"><div class="di-icon">✦</div><div class="di-title">Médicos Certificados</div></div><p class="di-body">Equipo con certificaciones especializadas en medicina estética. Tu seguridad es prioridad.</p></div>
+      <div class="di"><div class="di-head"><div class="di-icon">❋</div><div class="di-title">Seguimiento Post-Tratamiento</div></div><p class="di-body">El proceso no termina al salir. Acompañamiento durante la recuperación y monitoreo de resultados.</p></div>
+      <div class="di"><div class="di-head"><div class="di-icon">◉</div><div class="di-title">Tecnología de Vanguardia</div></div><p class="di-body">Equipos médicos certificados y actualizados. Las mejores tecnologías para los mejores resultados.</p></div>
+      <div class="di"><div class="di-head"><div class="di-icon">◈</div><div class="di-title">Planes de Financiamiento</div></div><p class="di-body">Tu bienestar no debe esperar. Planes flexibles para acceder a los tratamientos que necesitas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="proceso-bg"></div>
+  <div class="proceso-inner">
+    <div class="proceso-header">
+      <div><div class="eyebrow reveal" style="color:var(--gold-light)">Tu Proceso</div><h2 class="h-display reveal d1" style="color:var(--cream)">Cada paso,<br><em>junto a ti</em></h2></div>
+      <div><div class="gold-line reveal"></div><p class="body-text reveal d1" style="color:rgba(250,248,244,.42)">Seis pasos diseñados para que te sientas segura, acompañada e informada en cada etapa de tu transformación.</p></div>
+    </div>
+    <div class="psteps">
+      <div class="pstep reveal"><div class="pcircle"><span class="pnum">01</span></div><div class="pname">Primer Contacto</div><div class="pdesc">Nos escribes, te escuchamos sin compromiso.</div></div>
+      <div class="pstep reveal d1"><div class="pcircle"><span class="pnum">02</span></div><div class="pname">Valoración Gratuita</div><div class="pdesc">Diagnóstico facial profesional sin costo.</div></div>
+      <div class="pstep reveal d2"><div class="pcircle"><span class="pnum">03</span></div><div class="pname">Plan Personalizado</div><div class="pdesc">Protocolo ideal para tus necesidades.</div></div>
+      <div class="pstep reveal d3"><div class="pcircle"><span class="pnum">04</span></div><div class="pname">Tratamiento</div><div class="pdesc">Precisión médica en total comodidad.</div></div>
+      <div class="pstep reveal d4"><div class="pcircle"><span class="pnum">05</span></div><div class="pname">Seguimiento</div><div class="pdesc">Monitoreo y ajustes según tu evolución.</div></div>
+      <div class="pstep reveal d5"><div class="pcircle"><span class="pnum">06</span></div><div class="pname">Resultados</div><div class="pdesc">Belleza natural y confianza renovada.</div></div>
+    </div>
+    <div class="garantia reveal">
+      <div class="gi"><div class="gi-label">Garantía MediJOY</div><div class="gi-text">Si no estás satisfecha, trabajamos hasta lograrlo</div></div>
+      <div class="gi"><div class="gi-label">Transparencia Total</div><div class="gi-text">Precios claros, sin costos ocultos ni sorpresas</div></div>
+      <div class="gi"><div class="gi-label">Tu Seguridad Primero</div><div class="gi-text">Protocolos médicos certificados en cada paso</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="testi-hdr"><div class="eyebrow reveal">Testimonios</div><h2 class="h-display reveal d1">Lo que dicen<br>nuestras <em>pacientes</em></h2></div>
+  <div class="testi-grid">
+    <div class="tcard reveal"><div class="tmark">"</div><p class="ttext">Llegué con muchas dudas y salí sintiéndome completamente cuidada. Los resultados del rejuvenecimiento son increíbles y completamente naturales. ¡Mi piel nunca había lucido tan bien!</p><div class="tstars">★★★★★</div><div class="tauthor"><div class="tav">A</div><div><div class="tname">Ana Sofía M.</div><div class="ttrat">Rejuvenecimiento · CDMX</div></div></div></div>
+    <div class="tcard reveal d1"><div class="tmark">"</div><p class="ttext">El trato fue excepcional desde el primer momento. Me explicaron todo con detalle. La ozonoterapia cambió cómo me siento por dentro y por fuera.</p><div class="tstars">★★★★★</div><div class="tauthor"><div class="tav">M</div><div><div class="tname">Mariana L.</div><div class="ttrat">Ozonoterapia · Guadalajara</div></div></div></div>
+    <div class="tcard reveal d2"><div class="tmark">"</div><p class="ttext">Tenía manchas que me acomplejaban desde hace años. En pocas sesiones vi resultados que nunca esperé. El equipo de MediJOY es profesional, cálido y genuinamente te acompaña.</p><div class="tstars">★★★★★</div><div class="tauthor"><div class="tav">V</div><div><div class="tname">Valentina R.</div><div class="ttrat">Manchas · Monterrey</div></div></div></div>
+    <div class="tcard reveal"><div class="tmark">"</div><p class="ttext">Probé muchos tratamientos para mi acné sin resultados. En MediJOY finalmente encontré la solución. Mi piel mejoró notablemente y mi confianza volvió.</p><div class="tstars">★★★★★</div><div class="tauthor"><div class="tav">C</div><div><div class="tname">Camila T.</div><div class="ttrat">Acné · Puebla</div></div></div></div>
+    <div class="tcard reveal d1"><div class="tmark">"</div><p class="ttext">La hidratación facial fue una experiencia increíble. Me sentí consentida y los resultados duraron mucho más de lo esperado.</p><div class="tstars">★★★★★</div><div class="tauthor"><div class="tav">L</div><div><div class="tname">Lucía P.</div><div class="ttrat">Hidratación · Querétaro</div></div></div></div>
+    <div class="tcard reveal d2"><div class="tmark">"</div><p class="ttext">La lipo sin cirugía superó todas mis expectativas. Sin dolor, sin recuperación y resultados visibles. El equipo médico es de primer nivel.</p><div class="tstars">★★★★★</div><div class="tauthor"><div class="tav">R</div><div><div class="tname">Renata G.</div><div class="ttrat">Lipo Sin Cirugía · CDMX</div></div></div></div>
+  </div>
+</section>
+
+<!-- AGENDAR -->
+<section id="agendar">
+  <div class="ag-bg"></div>
+  <div class="ag-inner">
+    <div class="reveal-l">
+      <div class="eyebrow" style="color:var(--gold-light)">Valoración Gratuita</div>
+      <h2 class="h-display" style="color:var(--cream)">Empieza tu<br><em>transformación</em></h2>
+      <div class="gold-line"></div>
+      <p class="body-text" style="color:rgba(250,248,244,.42)">Tu primera valoración es completamente gratuita y sin compromiso. Diagnóstico personalizado, plan de tratamiento y respuesta a todas tus preguntas.</p>
+      <div class="ag-info">
+        <div class="aii"><div class="ai-ico">◈</div><div><div class="ai-title">Sin Costo</div><div class="ai-val">Primera valoración 100% gratuita. Sin compromisos.</div></div></div>
+        <div class="aii"><div class="ai-ico">✦</div><div><div class="ai-title">Respuesta Rápida</div><div class="ai-val">Confirmamos en menos de 24 horas por WhatsApp.</div></div></div>
+        <div class="aii"><div class="ai-ico">❋</div><div><div class="ai-title">Horarios Flexibles</div><div class="ai-val">Lunes a Sábado, 9:00 – 20:00 hrs.</div></div></div>
+        <div class="aii"><div class="ai-ico">◉</div><div><div class="ai-title">Confidencialidad</div><div class="ai-val">Tu proceso es completamente privado.</div></div></div>
+      </div>
+    </div>
+    <div class="reveal-r">
+      <div class="fprog" id="fprog">
+        <div class="fpd a" id="d1">1</div><div class="fpl" id="l1"></div>
+        <div class="fpd" id="d2">2</div><div class="fpl" id="l2"></div>
+        <div class="fpd" id="d3">3</div><div class="fpl" id="l3"></div>
+        <div class="fpd" id="d4">4</div>
+      </div>
+      <div class="fpanel a" id="p1">
+        <p class="fq">¿Cuál es tu nombre?</p><p class="fhint">Así personalizamos tu experiencia desde el primer momento.</p>
+        <div class="igrid"><input type="text" class="mi" placeholder="Tu nombre completo"><input type="number" class="mi" placeholder="Tu edad"></div>
+        <div class="fnav"><div></div><button class="btn btn-gold" onclick="fn(1)">Continuar →</button></div>
+      </div>
+      <div class="fpanel" id="p2">
+        <p class="fq">¿Qué deseas mejorar?</p><p class="fhint">Selecciona todas las áreas de interés.</p>
+        <div class="ogrid">
+          <div class="mopt" onclick="this.classList.toggle('s')">Firmeza y rejuvenecimiento</div>
+          <div class="mopt" onclick="this.classList.toggle('s')">Manchas e irregularidades</div>
+          <div class="mopt" onclick="this.classList.toggle('s')">Acné y cicatrices</div>
+          <div class="mopt" onclick="this.classList.toggle('s')">Hidratación y luminosidad</div>
+          <div class="mopt" onclick="this.classList.toggle('s')">Figura corporal</div>
+          <div class="mopt" onclick="this.classList.toggle('s')">Bienestar integral</div>
+        </div>
+        <div class="fnav"><button class="fbk" onclick="fp(2)">← Regresar</button><button class="btn btn-gold" onclick="fn(2)">Continuar →</button></div>
+      </div>
+      <div class="fpanel" id="p3">
+        <p class="fq">¿Cómo deseas sentirte?</p><p class="fhint">Tu bienestar emocional es tan importante como el resultado.</p>
+        <div class="ogrid">
+          <div class="mopt" onclick="so(this)">Más joven y fresca</div>
+          <div class="mopt" onclick="so(this)">Segura y confiada</div>
+          <div class="mopt" onclick="so(this)">Natural y saludable</div>
+          <div class="mopt" onclick="so(this)">Renovada y luminosa</div>
+        </div>
+        <div class="fnav"><button class="fbk" onclick="fp(3)">← Regresar</button><button class="btn btn-gold" onclick="fn(3)">Continuar →</button></div>
+      </div>
+      <div class="fpanel" id="p4">
+        <p class="fq">¿Cómo te contactamos?</p><p class="fhint">Te confirmamos en menos de 24 horas.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
+          <input type="tel" class="mi" placeholder="WhatsApp (con lada, ej. 55 1234 5678)">
+          <input type="text" class="mi" placeholder="Ciudad">
+          <select class="mi" style="appearance:none;cursor:none"><option value="" disabled selected>Horario preferido para tu cita</option><option>Mañana (9:00–12:00)</option><option>Tarde (12:00–17:00)</option><option>Noche (17:00–20:00)</option></select>
+        </div>
+        <div class="fnav"><button class="fbk" onclick="fp(4)">← Regresar</button><button class="btn btn-gold" onclick="fs()">Agendar Ahora ✓</button></div>
+      </div>
+      <div class="fok" id="fok">
+        <div class="sring">✓</div>
+        <h3>¡Solicitud recibida!</h3>
+        <p>Gracias por confiar en MediJOY & Clinic.<br>Nuestro equipo te contactará en las próximas horas para confirmar tu valoración gratuita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mj-footer">
+  <div class="mj-footer-grid">
+    <div>
+      <img src="logo.jpg" alt="MediJOY & Clinic" style="height:56px;width:auto;margin-bottom:18px;border-radius:3px">
+      <p class="mj-footer-desc">Medicina estética premium. Tecnología avanzada, resultados naturales y acompañamiento humano en cada tratamiento.</p>
+      <div class="mj-footer-socials"><a class="mj-social" href="#">IG</a><a class="mj-social" href="#">FB</a><a class="mj-social" href="#">WA</a><a class="mj-social" href="#">TK</a></div>
+    </div>
+    <div class="mj-footer-col"><h5>Tratamientos</h5><ul>
+      <li><a href="pages/rejuvenecimiento.html">Rejuvenecimiento Facial</a></li>
+      <li><a href="pages/ozonoterapia.html">Ozonoterapia</a></li>
+      <li><a href="pages/manchas.html">Eliminación de Manchas</a></li>
+      <li><a href="pages/acne.html">Tratamiento Acné</a></li>
+      <li><a href="pages/hidratacion.html">Hidratación Profunda</a></li>
+      <li><a href="pages/lipo.html">Lipo Sin Cirugía</a></li>
+    </ul></div>
+    <div class="mj-footer-col"><h5>Clínica</h5><ul>
+      <li><a href="#diferencia">Por Qué Elegirnos</a></li>
+      <li><a href="#proceso">Nuestro Proceso</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="tratamientos.html">Catálogo Completo</a></li>
+    </ul></div>
+    <div class="mj-footer-col"><h5>Contacto</h5><ul>
+      <li><a href="#agendar">Agendar Valoración</a></li>
+      <li><a href="#">WhatsApp Directo</a></li>
+      <li><a href="#">Aviso de Privacidad</a></li>
+    </ul></div>
+  </div>
+  <div class="mj-footer-bottom">
+    <div class="mj-footer-divline"></div>
+    <p class="mj-footer-copy">© 2025 MediJOY & Clinic · Medicina Estética · Todos los derechos reservados</p>
+    <div class="mj-footer-divline" style="background:linear-gradient(to left,var(--gold),transparent)"></div>
+  </div>
+</footer>
+
+<script src="styles/main.js"></script>
+<script>
+var st=1;
+function fn(s){
+  document.getElementById('p'+s).classList.remove('a');
+  document.getElementById('d'+s).classList.remove('a');
+  document.getElementById('d'+s).classList.add('d');
+  document.getElementById('l'+s).classList.add('d');
+  st=s+1;
+  document.getElementById('p'+st).classList.add('a');
+  document.getElementById('d'+st).classList.add('a');
+}
+function fp(s){
+  document.getElementById('p'+s).classList.remove('a');
+  document.getElementById('d'+(s-1)).classList.remove('d');
+  document.getElementById('d'+(s-1)).classList.add('a');
+  document.getElementById('l'+(s-1)).classList.remove('d');
+  st=s-1;
+  document.getElementById('p'+st).classList.add('a');
+}
+function so(el){el.parentElement.querySelectorAll('.mopt').forEach(function(e){e.classList.remove('s')});el.classList.add('s')}
+function fs(){document.getElementById('p4').classList.remove('a');document.getElementById('fprog').style.display='none';document.getElementById('fok').classList.add('show')}
+</script>
+</body>
+</html>
